@@ -1,56 +1,52 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To-Do-List
 
-> Description the project.
+> A simple to-do-list project with basic styling. The user can add a task, delete a task, edit a task and delete all completed tasks.
+> The data gets stored in the local storage.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- JavaScript
+- webpack
+- modules
 
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
+## Screenshot
 
 
+## Live Site URL: 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+- web browser (e.g. Google Chrome, Firefox)
+- text editor (e.g. VSCode)
+- CLI/terminal
 
-### Setup
+### Clone this repository
 
-### Install
+```
+git clone git clone https://github.com/Efiamotu-1/To-do-list.git
+```
+### Open the project in the browser
 
-### Usage
-
-### Run tests
-
-### Deployment
-
+```
+npm run start
+```
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Habeeb Musa Efiamotu**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/Efiamotu-1)
+- Twitter: [@twitterhandle](https://twitter.com/EFYAMOTU)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/musa-habeeb/)
 
-👤 **Author2**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
@@ -62,14 +58,7 @@ Feel free to check the [issues page](../../issues/).
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./MIT.md) licensed.
