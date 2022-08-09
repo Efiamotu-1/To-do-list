@@ -14,17 +14,32 @@ const todos = [
   },
 ];
 
-for (let i = 0; i < todos.length; i + 1) {
+todos.map((todo) => {
   const li = document.createElement('li');
   const checked = document.createElement('input');
   const text = document.createElement('p');
   const menuIcon = document.createElement('span');
   li.setAttribute('class', 'li-wrapper');
   checked.setAttribute('type', 'checkbox');
-  text.textContent = todos[i].description;
+  text.textContent = todo.description;
   menuIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
   li.appendChild(checked);
   li.appendChild(text);
   li.appendChild(menuIcon);
-  list.appendChild(li);
-}
+  return list.appendChild(li);
+});
+
+// for (let i = 0; i < todos.length; i + 1) {
+//   const li = document.createElement('li');
+//   const checked = document.createElement('input');
+//   const text = document.createElement('p');
+//   const menuIcon = document.createElement('span');
+//   li.setAttribute('class', 'li-wrapper');
+// }
+//   checked.setAttribute('type', 'checkbox');
+//   text.textContent = todos[i].description;
+//   menuIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
+//   li.appendChild(checked);
+//   li.appendChild(text);
+//   li.appendChild(menuIcon);
+//   list.appendChild(li);
