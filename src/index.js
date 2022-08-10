@@ -34,36 +34,7 @@ const display = () => {
     li.appendChild(deleteIcon);
     list.appendChild(li);
 
-    menuIcon.addEventListener('click', () => {
-      deleteIcon.style.display = 'block';
-      menuIcon.style.display = 'none';
-      text.disabled = false;
-      text.style.background = '';
-      text.addEventListener('keydown', (e) => {
-        const textId = e.target.id;
-        if (e.key === 'Enter') {
-          todos = todos.map((todo) => {
-            if (Number(textId) === todo.index) {
-              return {
-                description: text.value,
-                completed: false,
-                index: todo.index,
-              };
-            }
-
-            return {
-              description: todo.description,
-              completed: false,
-              index: todo.index,
-            };
-          });
-          localStorage.setItem('todos', JSON.stringify(todos));
-          display();
-        }
-      });
-    });
-
-    deleteIcon.addEventListener('click', (e) => {
+    const deleteTodo = (e) => {
       const taskId = e.target.id;
 
       todos = todos.filter((todo) => todo.index !== Number(taskId));
@@ -84,13 +55,46 @@ const display = () => {
       });
       localStorage.setItem('todos', JSON.stringify(todos));
       e.target.parentElement.parentElement.remove();
+    };
+
+    const changeTodoValue = (e, text) => {
+      const textId = e.target.id;
+      if (e.key === 'Enter') {
+        todos = todos.map((todo) => {
+          if (Number(textId) === todo.index) {
+            return {
+              description: text.value,
+              completed: false,
+              index: todo.index,
+            };
+          }
+
+          return {
+            description: todo.description,
+            completed: false,
+            index: todo.index,
+          };
+        });
+        localStorage.setItem('todos', JSON.stringify(todos));
+        display();
+      }
+    };
+
+    menuIcon.addEventListener('click', () => {
+      deleteIcon.style.display = 'block';
+      menuIcon.style.display = 'none';
+      text.disabled = false;
+      text.style.background = '#f1f5f9';
+
+      text.addEventListener('keydown', (e) => changeTodoValue(e, text));
     });
 
+    deleteIcon.addEventListener('click', (e) => deleteTodo(e));
   });
 // }
 };
 
-form.addEventListener('submit', (e) => {
+const addTodo = (e) => {
   e.preventDefault();
   const newTodo = {
     description: form.tasks.value,
@@ -101,7 +105,9 @@ form.addEventListener('submit', (e) => {
   todos.push(newTodo);
   localStorage.setItem('todos', JSON.stringify(todos));
   display();
-});
+};
+
+form.addEventListener('submit', (e) => addTodo(e));
 
 if (localStorage.getItem('todos')) {
   todos = JSON.parse(localStorage.getItem('todos'));
