@@ -14,8 +14,9 @@ main {
 }
 
 i {
-  color: rgb(165, 151, 151);
+  color: rgb(148, 139, 139);
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .list-div {
@@ -72,13 +73,18 @@ i {
   border-bottom: solid 1px #c0c0c0;
 }
 
-.li-wrapper input {
+.li-wrapper input[type="checkbox"] {
   width: 15px;
   height: 15px;
 }
 
-.li-wrapper p {
-  flex-grow: 1;
+.li-wrapper input[type="text"] {
+  border: none;
+  outline: none;
+  font-family: fantasy;
+  width: 100%;
+  font-weight: 200;
+  font-size: 1.2rem;
 }
 
 .clear-elements {

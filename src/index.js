@@ -1,45 +1,104 @@
 import './styles.css';
 
 const list = document.querySelector('ul');
-const todos = [
-  {
-    description: 'complete first phase of the project',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'complete second phase of the project',
-    completed: false,
-    index: 2,
-  },
-];
+const form = document.querySelector('form')
 
-todos.map((todo) => {
-  const li = document.createElement('li');
-  const checked = document.createElement('input');
-  const text = document.createElement('p');
-  const menuIcon = document.createElement('span');
-  li.setAttribute('class', 'li-wrapper');
-  checked.setAttribute('type', 'checkbox');
-  text.textContent = todo.description;
-  menuIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
-  li.appendChild(checked);
-  li.appendChild(text);
-  li.appendChild(menuIcon);
-  return list.appendChild(li);
-});
+let todos = [];
 
-// for (let i = 0; i < todos.length; i + 1) {
-//   const li = document.createElement('li');
-//   const checked = document.createElement('input');
-//   const text = document.createElement('p');
-//   const menuIcon = document.createElement('span');
-//   li.setAttribute('class', 'li-wrapper');
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  let newTodo = {
+    description : form.tasks.value,
+    completed : false,
+    index : todos.length + 1
+  }
+  form.tasks.value = ''
+  todos.push(newTodo)
+  localStorage.setItem('todos', JSON.stringify(todos))
+  display()
+})
+
+let display = () => {
+  list.innerHTML = ''
+  todos.map((todo, i) => {
+  console.log(todos)
+    const li = document.createElement('li');
+    const checked = document.createElement('input');
+    const text = document.createElement('input');
+    const menuIcon = document.createElement('span');
+    const deleteIcon = document.createElement('span');
+    li.setAttribute('class', 'li-wrapper');
+    checked.type = 'checkbox'
+    checked.name = 'task-done'
+    checked.checked = false
+    checked.id = todo.index
+    text.type = 'text'
+    text.name = 'task'
+    text.value = todo.description;
+    text.id = todo.index
+    text.disabled= true
+    text.style.cursor = 'pointer'
+    text.style.background = 'none'
+    text.style.color= 'black'
+    menuIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical" for="select"></i>';
+    deleteIcon.innerHTML = `<i class="fa-solid fa-trash" id="${todo.index}"></i>`;
+    deleteIcon.style.display = 'none'
+    li.appendChild(checked);
+    li.appendChild(text);
+    li.appendChild(menuIcon);
+    li.appendChild(deleteIcon);
+    list.appendChild(li);
+
+    menuIcon.addEventListener('click', () => {
+      deleteIcon.style.display = 'block'
+      menuIcon.style.display = 'none'
+      text.disabled = false
+      text.style.background = ''
+      text.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+        console.log(e.target.id)
+        }
+      })
+
+    })
+
+    deleteIcon.addEventListener('click', (e) => {
+      let taskId = e.target.id
+      console.log(Number(taskId))
+      console.log(todo.index)
+      todos = todos.filter(todo => todo.index !== Number(taskId))
+      todos = todos.map((todo) => {
+        if(todo.index > taskId) {
+          return {
+            description : todo.description,
+            completed : todo.completed,
+            index: todo.index - 1
+          }
+        }
+        else {
+          return {
+            description : todo.description,
+            completed : todo.completed,
+            index: todo.index
+          }
+        }
+       })
+      localStorage.setItem('todos', JSON.stringify(todos))
+      e.target.parentElement.parentElement.remove()
+      console.log(todos)
+    })
+
+    text.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        console.log(e.target.value)
+
+      }
+    })
+  });
 // }
-//   checked.setAttribute('type', 'checkbox');
-//   text.textContent = todos[i].description;
-//   menuIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
-//   li.appendChild(checked);
-//   li.appendChild(text);
-//   li.appendChild(menuIcon);
-//   list.appendChild(li);
+}
+
+if(localStorage.getItem('todos')) {
+  todos = JSON.parse(localStorage.getItem('todos'))
+  display()
+  }
