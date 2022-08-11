@@ -11,15 +11,21 @@
     <main>
         <section class="list-div">
           <div class="title">
-              <h1>Today's to do</h1>
+              <h1>Today's To Do</h1>
               <span><i class="fa-solid fa-arrows-rotate"></i></span>
           </div>
           <div class="input-text">
               <form id="form">
-              <input type="text" placeholder="Add to your list" class="insert-text">
+              <input type="text" name="tasks" placeholder="Add to your list" class="insert-text">
               </form>
           </div>
-           <ul class="list-container"></ul>
+           <ul class="list-container">
+            <!-- <li class="li-wrapper">
+                <input type="checkbox" name="task-done" checked="true">
+                <input type="text" name="task" value="todolist">
+                <span><i class="fa-solid fa-arrows-rotate"></i></span>
+            </li> -->
+           </ul>
           <div class="clear-elements">
               <button class="clear-btn" type="submit">Clear all completed</button>
           </div>
