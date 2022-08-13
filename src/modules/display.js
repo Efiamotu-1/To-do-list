@@ -37,22 +37,20 @@ const display = () => {
 
     const deleteTodo = (e) => {
       const taskId = e.target.id;
+      let count = 1
+      console.log(taskId)
+
       data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
       data.todos = data.todos.map((todo) => {
-        if (todo.index > taskId) {
-          deleteIcon.id = todo.index - 1;
           return ({
             description: todo.description,
             completed: todo.completed,
-            index: todo.index - 1,
-          }
-          );
-        }
-
-        return todo;
+            index: count++,
+          });
       });
       localStorage.setItem('todos', JSON.stringify(data.todos));
-      e.target.parentElement.parentElement.remove();
+      // e.target.parentElement.parentElement.remove();
+      display()
     };
 
     const changeTodoValue = (e, text) => {
