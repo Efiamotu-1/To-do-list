@@ -1,7 +1,8 @@
+/* eslint-disable no-plusplus */
 import data from './data.js';
 import { list } from './domElements.js';
 
-let dragStartId = 0;
+let dragStartId;
 
 const display = () => {
   list.innerHTML = '';
@@ -12,6 +13,7 @@ const display = () => {
     const menuIcon = document.createElement('span');
     const deleteIcon = document.createElement('span');
     li.setAttribute('class', 'li-wrapper');
+    li.draggable = 'true';
     checked.type = 'checkbox';
     checked.name = 'task-done';
     checked.checked = false;
@@ -27,7 +29,7 @@ const display = () => {
     menuIcon.innerHTML = '<i class="fa-solid fa-ellipsis-vertical" for="select"></i>';
     deleteIcon.innerHTML = `<i class="fa-solid fa fa-trash" id="${todo.index}"></i>`;
     deleteIcon.style.display = 'none';
-    li.draggable = 'true'
+    li.id = todo.index;
     li.appendChild(checked);
     li.appendChild(text);
     li.appendChild(menuIcon);
@@ -38,80 +40,76 @@ const display = () => {
       text.style.textDecoration = 'line-through';
     }
 
-       // Drag event
-   li.addEventListener('dragstart', dragStart)
+    // Drag Functions
+    function dragStart(e) {
+      dragStartId = e.target.id;
+      this.classList.add('selected');
+      setTimeout(() => this.classList.add('invisible'), 0);
+    }
 
-   li.addEventListener('dragend', dragEnd)
-   li.addEventListener('dragover', dragOver)
-   li.addEventListener('dragenter', dragEnter)
-   li.addEventListener('dragleave', dragLeave)
-   li.addEventListener('drop', dragDrop)
- 
- 
-   // Drag Functions
-   function dragStart(e) {
-     dragStartId = e.target.id
-     console.log(data.todos)
-     this.classList.add('selected')     
-     setTimeout(() => this.classList.add('invisible'), 0) 
-   }
- 
-   function dragEnd() {
-     this.classList.remove('invisible')
-     this.classList.remove('selected')     
-   }
- 
-   function dragOver(e) {
-     e.preventDefault()
- 
-   }
- 
-   function dragEnter(e) {
-     e.preventDefault()
-     this.classList.add('hovered')    
-   }
- 
-   function dragLeave() {
-     this.classList.remove('hovered')     
-   }
- 
-   function dragDrop(e) {    
-     let count = 1
-     let replaceIndex = e.target.id - 1
-    //  console.log(dragStartId)
-    //  console.log(replaceIndex)
-     let indexNew = dragStartId -1
-     let [replaceValue] = data.todos.splice(indexNew, 1)
-     data.todos.splice(replaceIndex, 0, replaceValue)
-     data.todos = data.todos.map((todo) => {
-       return {
-         description : todo.description,
-         completed : todo.completed,
-         index : count++
-       }
-     })
-     this.classList.remove('hovered')     
-     console.log(data.todos)
-     display()
-   }
- 
+    function dragEnd() {
+      this.classList.remove('invisible');
+      this.classList.remove('selected');
+    }
+
+    function dragOver(e) {
+      e.preventDefault();
+    }
+
+    function dragEnter(e) {
+      e.preventDefault();
+      this.classList.add('hovered');
+    }
+
+    function dragLeave() {
+      this.classList.remove('hovered');
+    }
+
+    function dragDrop(e) {
+      let count = 1;
+      const replaceIndex = e.target.id - 1;
+      const indexNew = dragStartId - 1;
+      const [replaceValue] = data.todos.splice(indexNew, 1);
+      data.todos.splice(replaceIndex, 0, replaceValue);
+      data.todos = data.todos.map((todo) => ({
+        description: todo.description,
+        completed: todo.completed,
+        index: count++,
+      }));
+      this.classList.remove('hovered');
+      display();
+    }
+
+    // Drag event
+    li.addEventListener('dragstart', dragStart);
+    li.addEventListener('dragend', dragEnd);
+    li.addEventListener('dragover', dragOver);
+    li.addEventListener('dragenter', dragEnter);
+    li.addEventListener('dragleave', dragLeave);
+    li.addEventListener('drop', dragDrop);
 
     const deleteTodo = (e) => {
       const taskId = e.target.id;
-      let count = 1
-      console.log(taskId)
-
+      let count = 1;
       data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
       data.todos = data.todos.map((todo) => {
-          return ({
+        if (todo.index > taskId) {
+          return {
             description: todo.description,
             completed: todo.completed,
             index: count++,
-          });
+          };
+        }
+
+        return {
+          description: todo.description,
+          completed: todo.completed,
+          index: todo.index,
+        };
       });
       localStorage.setItem('todos', JSON.stringify(data.todos));
       // e.target.parentElement.parentElement.remove();
-      display()
+      display();
     };
 
     const changeTodoValue = (e, text) => {

@@ -107,3 +107,22 @@ button {
 .display-none {
   display: none;
 }
+/* Drag styles */
+
+.selected {
+  border: solid #ccc 3px;
+
+}
+
+.hovered {
+  border: 2px solid black;
+  transform: scaleX(20px);
+}
+
+.visible {
+  display: block;
+}
+
+.invisible {
+  display: none;
+}

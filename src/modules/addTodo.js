@@ -5,7 +5,7 @@ import { form } from './domElements.js';
 const addTodo = (e) => {
   e.preventDefault();
   const task = form.tasks.value;
-  if (task === ' ') return;
+  if (task === '') return;
 
   const newTodo = {
     description: task,
