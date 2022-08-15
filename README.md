@@ -12,12 +12,13 @@
 - CSS
 - JavaScript
 - webpack
-- modules
+- ES6 modules
 
 ## Screenshot
 
 
 ## Live Site URL: 
+[Link to live Version](https://efiamotu-1.github.io/To-do-list/dist/)
 ## Getting Started
 
 
