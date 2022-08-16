@@ -12,7 +12,7 @@
 - CSS
 - JavaScript
 - webpack
-- modules
+- module
 
 ## Screenshot
 
