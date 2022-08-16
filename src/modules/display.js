@@ -78,7 +78,6 @@ const display = () => {
       }));
       this.classList.remove('hovered');
       localStorage.setItem('todos', JSON.stringify(data.todos))
-
       display();
     }
 
