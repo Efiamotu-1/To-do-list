@@ -5,7 +5,8 @@
 }
 
 body {
-  background: #eee;
+  background: #000;
+  opacity: 0.9;
 }
 
 main {
@@ -43,6 +44,7 @@ i {
 
 #form {
   display: flex;
+  align-items: center;
 }
 
 .input-text {
