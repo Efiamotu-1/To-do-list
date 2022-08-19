@@ -3,7 +3,7 @@ import addTodo from './modules/addTodo.js';
 import { add, clear, input } from './modules/domElements.js';
 import getTodos from './modules/getTodos.js';
 import clearTodo from './modules/clearTodo.js';
-import data from './modules/data'
+import data from './modules/data.js';
 
 getTodos();
 

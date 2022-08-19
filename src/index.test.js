@@ -60,8 +60,8 @@ describe('Edit an existing task should update its value', () => {
     // Expect the value to be 'edit a todo'
     expect(firstTaskInput.value).toBe('Edit a todo');
     expect(list.childElementCount).toBe(1);
-  })
-})
+  });
+});
 
 describe('Clear all completed test suite', () => {
   test('set completed to true', () => {
@@ -74,7 +74,7 @@ describe('Clear all completed test suite', () => {
     expect(firstTaskCheckbox.checked).toBe(false);
     firstTaskCheckbox.checked = true;
     expect(firstTaskCheckbox.checked).toBe(true);
-  })
+  });
 
   // Test that the completed tasks are removed from the list
   test('Clear all completed should clear all completed tasks', () => {
@@ -93,11 +93,9 @@ describe('Clear all completed test suite', () => {
     thirdTaskCheckbox.checked = true;
     data.todos[0].completed = true;
     data.todos[2].completed = true;
-    console.log(data.todos)
-    clearTodo(data.todos)
-    console.log(data.todos)
+    clearTodo(data.todos);
     expect(firstTaskCheckbox.checked).toBe(true);
     expect(thirdTaskCheckbox.checked).toBe(true);
     expect(list.childElementCount).toBe(2);
-  })
-})
+  });
+});
