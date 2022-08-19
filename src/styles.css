@@ -5,12 +5,14 @@
 }
 
 body {
-  background: #eee;
+  background: #000;
+  opacity: 0.9;
 }
 
 main {
   display: flex;
   height: 100vh;
+ 
 }
 
 i {
@@ -43,6 +45,7 @@ i {
 
 #form {
   display: flex;
+  align-items: center;
 }
 
 .input-text {

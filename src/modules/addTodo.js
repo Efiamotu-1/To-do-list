@@ -2,9 +2,8 @@ import data from './data.js';
 import display from './display.js';
 import { form } from './domElements.js';
 
-const addTodo = (e) => {
-  e.preventDefault();
-  const task = form.tasks.value;
+const addTodo = () => {
+  const task = input.value;
   if (task === '') return;
 
   const newTodo = {

@@ -93,20 +93,14 @@ const display = () => {
       const taskId = e.target.id;
       let count = 1;
       data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
-      data.todos = data.todos.map((todo) => {
-        if (todo.index > taskId) {
+      data.todos = data.todos.map((todo) => {        
           return {
             description: todo.description,
             completed: todo.completed,
             index: count++,
           };
-        }
+        
 
-        return {
-          description: todo.description,
-          completed: todo.completed,
-          index: todo.index,
-        };
       });
       localStorage.setItem('todos', JSON.stringify(data.todos));
       // e.target.parentElement.parentElement.remove();

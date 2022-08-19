@@ -1,11 +1,11 @@
 import './styles.css';
 import addTodo from './modules/addTodo.js';
-import { form, clear } from './modules/domElements.js';
+import { add, clear } from './modules/domElements.js';
 import getTodos from './modules/getTodos.js';
 import clearTodo from './modules/clearTodo.js';
 
 getTodos();
 
-form.addEventListener('submit', (e) => addTodo(e));
+add.addEventListener('click', addTodo);
 
 clear.addEventListener('click', clearTodo);
