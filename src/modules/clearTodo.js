@@ -12,12 +12,6 @@ const clearTodo = (array) => {
     index: count++,
   }));
   localStorage.setItem('todos', JSON.stringify(data.todos));
-  let tasks = document.querySelectorAll('.list-container li')
-  tasks.forEach(task => {
-    if(task.checked === true) {
-      task.remove()
-    }
-  })
   let list = document.querySelector('.list-container')
   display(list);
 };

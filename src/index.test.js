@@ -91,6 +91,8 @@ describe('Clear all completed test suite', () => {
     const thirdTaskCheckbox = document.querySelector('.list-container li:nth-child(3) input:nth-child(1)');
     firstTaskCheckbox.checked = true;
     thirdTaskCheckbox.checked = true;
+    data.todos[0].completed = true;
+    data.todos[2].completed = true;
     console.log(data.todos)
     clearTodo(data.todos)
     console.log(data.todos)
