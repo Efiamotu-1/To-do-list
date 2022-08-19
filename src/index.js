@@ -3,7 +3,6 @@ import addTodo from './modules/addTodo.js';
 import { add, clear, input } from './modules/domElements.js';
 import getTodos from './modules/getTodos.js';
 import clearTodo from './modules/clearTodo.js';
-import display from './modules/display.js';
 
 getTodos();
 
@@ -11,6 +10,6 @@ getTodos();
 // which displays it on the dom
 add.addEventListener('click', () => {
   addTodo(input.value);
- });
+});
 
 clear.addEventListener('click', clearTodo);

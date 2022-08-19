@@ -1,5 +1,6 @@
 import addTodo from './modules/addTodo.js';
 import display, { deleteTodo } from './modules/display.js';
+
 document.body.innerHTML = `
 
 <main>
@@ -23,23 +24,21 @@ document.body.innerHTML = `
     </section>
   </main>
 
-`
+`;
 
 describe('Updating the todo list', () => {
-;
   test('Add a new todo', () => {
     addTodo('add a todo');
     addTodo('add a todo');
     addTodo('add a todo');
     const list = document.querySelector('.list-container');
-    console.log(list)
     expect(list.childElementCount).toBe(3);
   });
 
-   test('remove a todo', () => {
-      deleteTodo(1)
+  test('remove a todo', () => {
+    deleteTodo(1);
     const list = document.querySelector('.list-container');
-    display(list)
+    display(list);
     expect(list.childElementCount).toBe(2);
-   })
+  });
 });

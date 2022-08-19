@@ -1,7 +1,5 @@
 import data from './data.js';
 import display from './display.js';
-import { list } from './domElements.js';
-
 
 const addTodo = (value) => {
   const newTodo = {
@@ -11,9 +9,8 @@ const addTodo = (value) => {
   };
   data.todos.push(newTodo);
   localStorage.setItem('todos', JSON.stringify(data.todos));
-  let list = document.querySelector('.list-container')
-  console.log(list)
-  display(list)
+  const list = document.querySelector('.list-container');
+  display(list);
 };
 
 export default addTodo;
