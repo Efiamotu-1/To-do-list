@@ -1,10 +1,30 @@
 /* eslint-disable no-plusplus */
 import data from './data.js';
-import { list } from './domElements.js';
+// import { list } from './domElements.js';
 
 let dragStartId;
 
-const display = () => {
+export const deleteTodo = (taskId) => {
+  // const taskId= e.target.id;
+  let count = 1;
+  data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
+  data.todos = data.todos.map((todo) => ({
+    description: todo.description,
+    completed: todo.completed,
+    index: count++,
+  }));
+  localStorage.setItem('todos', JSON.stringify(data.todos));
+  let tasks = document.querySelectorAll('.list-container li')
+  tasks.forEach(task => {
+    if(task.id === taskId) {
+      task.remove()
+    }
+  })
+    // let list = document.querySelector('list-container')
+  // display(list);
+};
+
+const display = (list) => {
   list.innerHTML = '';
   data.todos.forEach((todo) => {
     const li = document.createElement('li');
@@ -35,6 +55,7 @@ const display = () => {
     li.appendChild(menuIcon);
     li.appendChild(deleteIcon);
     list.appendChild(li);
+
     if (todo.completed === true) {
       checked.checked = true;
       text.style.textDecoration = 'line-through';
@@ -77,7 +98,7 @@ const display = () => {
         index: count++,
       }));
       this.classList.remove('hovered');
-      localStorage.setItem('todos', JSON.stringify(data.todos))
+      localStorage.setItem('todos', JSON.stringify(data.todos));
       display();
     }
 
@@ -89,23 +110,6 @@ const display = () => {
     li.addEventListener('dragleave', dragLeave);
     li.addEventListener('drop', dragDrop);
 
-    const deleteTodo = (e) => {
-      const taskId = e.target.id;
-      let count = 1;
-      data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
-      data.todos = data.todos.map((todo) => {        
-          return {
-            description: todo.description,
-            completed: todo.completed,
-            index: count++,
-          };
-        
-
-      });
-      localStorage.setItem('todos', JSON.stringify(data.todos));
-      // e.target.parentElement.parentElement.remove();
-      display();
-    };
 
     const changeTodoValue = (e, text) => {
       const textId = e.target.id;
@@ -135,7 +139,10 @@ const display = () => {
       text.addEventListener('keydown', (e) => changeTodoValue(e, text));
     });
 
-    deleteIcon.addEventListener('click', (e) => deleteTodo(e));
+    deleteIcon.addEventListener('click', (e) => {
+
+      deleteTodo(e.target.id);
+    });
 
     checked.addEventListener('change', (e) => {
       const taskId = e.target.id;
@@ -162,4 +169,5 @@ const display = () => {
 // }
 };
 
+// export {deleteTodo}
 export default display;

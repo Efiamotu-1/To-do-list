@@ -1,11 +1,8 @@
-import addTodo from "./modules/addTodo";
-import { input, list } from "./modules/domElements";
-import display from "../src/modules/display"
-import data from '../src/modules/data.js';
+import addTodo from './modules/addTodo.js';
+import display, { deleteTodo } from './modules/display.js';
+document.body.innerHTML = `
 
-describe('Add new todo', () => {
-    document.body.innerHTML = `
-    <main>
+<main>
     <section class="list-div">
       <div class="title">
           <h1>Today's To Do</h1>
@@ -25,19 +22,24 @@ describe('Add new todo', () => {
       </div>
     </section>
   </main>
-    `
-    const addTodo = () => {
-        const newTodo = {
-          description: 'play ball tomorrow',
-          completed: false,
-          index: data.todos.length + 1,
-        };
-        data.todos.push(newTodo);
-        localStorage.setItem('todos', JSON.stringify(data.todos));
-        display(); 
-      };
-    addTodo()
 
-    test('todo add', () => {    
-   expect(data.todos.length).toBe(1)}) 
-})
+`
+
+describe('Updating the todo list', () => {
+;
+  test('Add a new todo', () => {
+    addTodo('add a todo');
+    addTodo('add a todo');
+    addTodo('add a todo');
+    const list = document.querySelector('.list-container');
+    console.log(list)
+    expect(list.childElementCount).toBe(3);
+  });
+
+   test('remove a todo', () => {
+      deleteTodo(1)
+    const list = document.querySelector('.list-container');
+    display(list)
+    expect(list.childElementCount).toBe(2);
+   })
+});
