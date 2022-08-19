@@ -25,6 +25,7 @@ export const deleteTodo = (taskId) => {
 };
 
 const display = (list) => {
+  console.log(list)
   list.innerHTML = '';
   data.todos.forEach((todo) => {
     const li = document.createElement('li');

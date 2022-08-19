@@ -12,7 +12,8 @@ const clearTodo = () => {
     index: count++,
   }));
   localStorage.setItem('todos', JSON.stringify(data.todos));
-  display();
+  let list = document.querySelector('.list-container');
+  display(list);
 };
 
 export default clearTodo;
