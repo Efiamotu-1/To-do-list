@@ -139,7 +139,6 @@ const display = (list) => {
     });
 
     deleteIcon.addEventListener('click', (e) => {
-
       deleteTodo(e.target.id);
     });
 

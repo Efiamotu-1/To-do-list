@@ -32,14 +32,13 @@ describe('Updating the todo list', () => {
     addTodo('add a todo');
 
     const list = document.querySelector('.list-container');
-    console.log(list)
-    expect(list.childElementCount).toBe(3);
+    expect(list.childElementCount).toBe(2);
   });
 
-   test('remove a todo', () => {
-    deleteTodo(1)
+  test('remove a todo', () => {
+    deleteTodo(1);
     const list = document.querySelector('.list-container');
-    display(list)
-    expect(list.childElementCount).toBe(2);
-   })
+    display(list);
+    expect(list.childElementCount).toBe(1);
+  });
 });
