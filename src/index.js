@@ -3,6 +3,7 @@ import addTodo from './modules/addTodo.js';
 import { add, clear, input } from './modules/domElements.js';
 import getTodos from './modules/getTodos.js';
 import clearTodo from './modules/clearTodo.js';
+import data from './modules/data.js';
 
 getTodos();
 
@@ -12,4 +13,4 @@ add.addEventListener('click', () => {
   addTodo(input.value);
 });
 
-clear.addEventListener('click', clearTodo);
+clear.addEventListener('click', () => clearTodo(data.todos));

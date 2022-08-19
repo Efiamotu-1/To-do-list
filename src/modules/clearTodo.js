@@ -2,9 +2,9 @@
 import data from './data.js';
 import display from './display.js';
 
-const clearTodo = () => {
+const clearTodo = (array) => {
   let count = 1;
-  data.todos = data.todos.filter((todo) => todo.completed !== true);
+  data.todos = array.filter((todo) => todo.completed !== true);
 
   data.todos = data.todos.map((todo) => ({
     description: todo.description,

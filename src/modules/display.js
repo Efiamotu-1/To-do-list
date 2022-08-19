@@ -99,7 +99,8 @@ const display = (list) => {
       }));
       this.classList.remove('hovered');
       localStorage.setItem('todos', JSON.stringify(data.todos));
-      display();
+      const list = document.querySelector('.list-container');
+      display(list);
     }
 
     // Drag event
@@ -125,7 +126,8 @@ const display = (list) => {
           return todo;
         });
         localStorage.setItem('todos', JSON.stringify(data.todos));
-        display();
+        const list = document.querySelector('.list-container');
+        display(list);
       }
     };
 
