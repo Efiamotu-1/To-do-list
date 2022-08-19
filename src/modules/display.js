@@ -139,10 +139,7 @@ const display = (list) => {
       text.addEventListener('keydown', (e) => changeTodoValue(e, text));
     });
 
-    deleteIcon.addEventListener('click', (e) => {
-
-      deleteTodo(e.target.id);
-    });
+    deleteIcon.addEventListener('click', e => deleteTodo(e.target.id));
 
     checked.addEventListener('change', (e) => {
       const taskId = e.target.id;

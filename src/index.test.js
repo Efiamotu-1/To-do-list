@@ -29,17 +29,17 @@ describe('Updating the todo list', () => {
 ;
   test('Add a new todo', () => {
     addTodo('add a todo');
-    addTodo('add a todo');
-    addTodo('add a todo');
+    addTodo('add another todo');
+
     const list = document.querySelector('.list-container');
     console.log(list)
-    expect(list.childElementCount).toBe(3);
+    expect(list.childElementCount).toBe(2);
   });
 
    test('remove a todo', () => {
-      deleteTodo(1)
+    deleteTodo(1)
     const list = document.querySelector('.list-container');
     display(list)
-    expect(list.childElementCount).toBe(2);
+    expect(list.childElementCount).toBe(1);
    })
 });
