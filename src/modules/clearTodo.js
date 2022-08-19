@@ -12,7 +12,7 @@ const clearTodo = () => {
     index: count++,
   }));
   localStorage.setItem('todos', JSON.stringify(data.todos));
-  let list = document.querySelector('.list-container')
+  const list = document.querySelector('.list-container');
   display(list);
 };
 
