@@ -14,13 +14,13 @@ export const deleteTodo = (taskId) => {
     index: count++,
   }));
   localStorage.setItem('todos', JSON.stringify(data.todos));
-  let tasks = document.querySelectorAll('.list-container li')
-  tasks.forEach(task => {
-    if(task.id === taskId) {
-      task.remove()
+  const tasks = document.querySelectorAll('.list-container li');
+  tasks.forEach((task) => {
+    if (task.id === taskId) {
+      task.remove();
     }
-  })
-    // let list = document.querySelector('list-container')
+  });
+  // let list = document.querySelector('list-container')
   // display(list);
 };
 
@@ -110,7 +110,6 @@ const display = (list) => {
     li.addEventListener('dragleave', dragLeave);
     li.addEventListener('drop', dragDrop);
 
-
     const changeTodoValue = (e, text) => {
       const textId = e.target.id;
       if (e.key === 'Enter') {
@@ -139,7 +138,10 @@ const display = (list) => {
       text.addEventListener('keydown', (e) => changeTodoValue(e, text));
     });
 
-    deleteIcon.addEventListener('click', e => deleteTodo(e.target.id));
+    deleteIcon.addEventListener('click', (e) => {
+
+      deleteTodo(e.target.id);
+    });
 
     checked.addEventListener('change', (e) => {
       const taskId = e.target.id;
@@ -163,7 +165,7 @@ const display = (list) => {
       localStorage.setItem('todos', JSON.stringify(data.todos));
     });
   });
-// }
+  // }
 };
 
 // export {deleteTodo}
