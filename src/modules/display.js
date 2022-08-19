@@ -99,7 +99,7 @@ const display = (list) => {
       }));
       this.classList.remove('hovered');
       localStorage.setItem('todos', JSON.stringify(data.todos));
-      let list = document.querySelector('.list-container')
+      const list = document.querySelector('.list-container');
       display(list);
     }
 
@@ -126,7 +126,7 @@ const display = (list) => {
           return todo;
         });
         localStorage.setItem('todos', JSON.stringify(data.todos));
-        let list = document.querySelector('.list-container')
+        const list = document.querySelector('.list-container');
         display(list);
       }
     };
