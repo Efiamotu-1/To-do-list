@@ -91,10 +91,11 @@ describe('Clear all completed test suite', () => {
     const thirdTaskCheckbox = document.querySelector('.list-container li:nth-child(3) input:nth-child(1)');
     firstTaskCheckbox.checked = true;
     thirdTaskCheckbox.checked = true;
+    console.log(data.todos)
+    clearTodo(data.todos)
+    console.log(data.todos)
     expect(firstTaskCheckbox.checked).toBe(true);
     expect(thirdTaskCheckbox.checked).toBe(true);
-    const clearBtn = document.querySelector('.clear-btn');
-    clearBtn.click();
     expect(list.childElementCount).toBe(2);
   })
 })
