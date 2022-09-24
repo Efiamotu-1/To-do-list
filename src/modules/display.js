@@ -1,28 +1,7 @@
 /* eslint-disable no-plusplus */
 import data from './data.js';
-// import { list } from './domElements.js';
 
 let dragStartId;
-
-export const deleteTodo = (taskId) => {
-  // const taskId= e.target.id;
-  let count = 1;
-  data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
-  data.todos = data.todos.map((todo) => ({
-    description: todo.description,
-    completed: todo.completed,
-    index: count++,
-  }));
-  localStorage.setItem('todos', JSON.stringify(data.todos));
-  const tasks = document.querySelectorAll('.list-container li');
-  tasks.forEach((task) => {
-    if (task.id === taskId) {
-      task.remove();
-    }
-  });
-  // let list = document.querySelector('list-container')
-  // display(list);
-};
 
 const display = (list) => {
   list.innerHTML = '';
@@ -141,6 +120,8 @@ const display = (list) => {
     });
 
     deleteIcon.addEventListener('click', (e) => {
+      /* eslint-disable no-use-before-define */
+
       deleteTodo(e.target.id);
     });
 
@@ -169,5 +150,17 @@ const display = (list) => {
   // }
 };
 
-// export {deleteTodo}
+export const deleteTodo = (taskId) => {
+  let count = 1;
+  data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
+  data.todos = data.todos.map((todo) => ({
+    description: todo.description,
+    completed: todo.completed,
+    index: count++,
+  }));
+  localStorage.setItem('todos', JSON.stringify(data.todos));
+  const list = document.querySelector('.list-container');
+  display(list);
+};
+
 export default display;
