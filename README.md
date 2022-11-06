@@ -32,8 +32,6 @@
  text editor (e.g. VSCode)
  CLI/terminal
 
-
-
 ```
 ### Setup
 
