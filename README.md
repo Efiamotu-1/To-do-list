@@ -14,20 +14,42 @@
 - webpack
 - ES6 modules
 
+## Website Desktop view
+
+![todo-1](https://user-images.githubusercontent.com/89055502/200188786-f287c76f-5c31-46d2-b48e-6ed16bd374ab.png)
+
 ## Live Site URL: 
 [Link to live Version](https://efiamotu-1.github.io/To-do-list/dist/)
+
+
 ## Getting Started
 
-
 ### Prerequisites
-- web browser (e.g. Google Chrome, Firefox)
-- text editor (e.g. VSCode)
-- CLI/terminal
+```
+ node js
+ npm
+ web browser (e.g. Google Chrome, Firefox)
+ text editor (e.g. VSCode)
+ CLI/terminal
 
-### Clone this repository
+### Setup
+```
+Clone the repository and change the directory to webpack-boilerplate
+
+``` 
+  $ git clone https://github.com/Efiamotu-1/To-do-list.git
+
+  $ cd To-do-list
 
 ```
-git clone git clone https://github.com/Efiamotu-1/To-do-list.git
+
+### Install
+Install all project dependencies by running the command below
+ 
+``` 
+  $ npm install
+  `OR`
+  $ npm  i
 ```
 ### Open the project in the browser
 
@@ -35,6 +57,11 @@ git clone git clone https://github.com/Efiamotu-1/To-do-list.git
 npm run start
 ```
 
+### To test the project 
+
+```
+npm run test
+```
 
 ## Authors
 
