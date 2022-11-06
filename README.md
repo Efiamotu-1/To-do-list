@@ -32,8 +32,11 @@
  text editor (e.g. VSCode)
  CLI/terminal
 
-### Setup
+
+
 ```
+### Setup
+
 Clone the repository and change the directory to webpack-boilerplate
 
 ``` 
