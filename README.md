@@ -75,7 +75,7 @@ npm run test
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Efiamotu-1/To-do-list/issues).
 
 ## Show your support
 
