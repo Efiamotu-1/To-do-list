@@ -2,8 +2,8 @@
 
 # To-Do-List
 
-> A simple to-do-list project with basic styling. The user can add a task, delete a task, edit a task and delete all completed tasks.
-> The data gets stored in the local storage.
+>- A simple to-do-list project with basic styling. The user can add a task, delete a task, edit a task and delete all completed tasks.
+>- The data gets stored in the local storage.
 
 
 ## Built With
@@ -38,12 +38,10 @@ npm run start
 
 ## Authors
 
-👤 **Habeeb Musa Efiamotu**
 
-- GitHub: [@githubhandle](https://github.com/Efiamotu-1)
-- Twitter: [@twitterhandle](https://twitter.com/EFYAMOTU)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/musa-habeeb/)
-
+| 👤 Name | Github | Twitter | LinkedIn |
+|------|--------|---------|----------|
+|Habeeb Efiamotu Musa Owolewa|[@Efiamotu-1](https://github.com/Efiamotu-1)|[@EFYAMOTU](https://twitter.com/EFYAMOTU)|[Habeeb Musa](https://www.linkedin.com/in/Musa-habeeb/)|
 
 
 ## 🤝 Contributing
