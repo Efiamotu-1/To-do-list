@@ -65,7 +65,7 @@ const display = (list) => {
     }
 
     function dragDrop(e) {
-      let count = 1;
+      const count = 1;
       const replaceIndex = e.target.id - 1;
       const indexNew = dragStartId - 1;
       const [replaceValue] = data.todos.splice(indexNew, 1);
@@ -119,8 +119,6 @@ const display = (list) => {
     });
 
     deleteIcon.addEventListener('click', (e) => {
-      /* eslint-disable no-use-before-define */
-
       deleteTodo(e.target.id);
     });
 
@@ -150,7 +148,7 @@ const display = (list) => {
 };
 
 export const deleteTodo = (taskId) => {
-  let count = 1;
+  const count = 1;
   data.todos = data.todos.filter((todo) => todo.index !== Number(taskId));
   data.todos = data.todos.map((todo) => ({
     description: todo.description,
