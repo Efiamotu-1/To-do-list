@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import data from './data.js';
 
 let dragStartId;
@@ -74,7 +73,7 @@ const display = (list) => {
       data.todos = data.todos.map((todo) => ({
         description: todo.description,
         completed: todo.completed,
-        index: count++,
+        index: count + 1,
       }));
       this.classList.remove('hovered');
       localStorage.setItem('todos', JSON.stringify(data.todos));
@@ -156,7 +155,7 @@ export const deleteTodo = (taskId) => {
   data.todos = data.todos.map((todo) => ({
     description: todo.description,
     completed: todo.completed,
-    index: count++,
+    index: count + 1,
   }));
   localStorage.setItem('todos', JSON.stringify(data.todos));
   const list = document.querySelector('.list-container');
